@@ -7,10 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="aquarius" />
+        <module name="taskexecutor" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="aquarius" target="1.8" />
+      <module name="inner" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

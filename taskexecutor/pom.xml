@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>aquarius</artifactId>
-
+    <artifactId>taskexecutor</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -48,5 +47,10 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.noveogroup</groupId>
+            <artifactId>task-executor</artifactId>
+        </dependency>
     </dependencies>
+
 </project>
