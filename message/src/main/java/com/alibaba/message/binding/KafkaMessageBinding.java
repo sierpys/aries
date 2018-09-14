@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * @author sier.pys 9/13/18
  */
-public class KafkaMessageBinding<K extends Serializable, V extends Serializable> extends AbstractMessageBinding<K, V> {
+public class KafkaMessageBinding<K extends Serializable, V extends Serializable> extends AbstractMessageBinding<V> {
 
     private String topic;
 
@@ -19,22 +19,19 @@ public class KafkaMessageBinding<K extends Serializable, V extends Serializable>
 
     @Override
     public AbstractMessage toMessage(Object input) {
-        V value = serializer.seralize(input);
+        V value = serializer.serialize(input);
         ProducerRecord<K, V> producerRecord = new ProducerRecord<K, V>(getTopic(), getKey(), value);
         return new KafkaMessage<>(producerRecord);
     }
 
-    @Override
     public String getTopic() {
         return this.topic;
     }
 
-    @Override
     public Integer partition() {
         return this.partition;
     }
 
-    @Override
     public K getKey() {
         return this.key;
     }

@@ -9,16 +9,10 @@ import java.util.List;
 /**
  * @author sier.pys 9/13/18
  */
-public abstract class AbstractMessageBinding<K, V> {
-    protected Serializer<V> serializer;
+public abstract class AbstractMessageBinding<R> {
+    protected Serializer<R> serializer;
 
     public abstract AbstractMessage toMessage(Object input);
-
-    public abstract String getTopic();
-
-    public abstract Integer partition();
-
-    public abstract K getKey();
 
     public static List<AbstractMessage> toMessages(Object input, AbstractMessageBinding... bindings) {
         List<AbstractMessage> rt = new ArrayList<>(bindings.length);

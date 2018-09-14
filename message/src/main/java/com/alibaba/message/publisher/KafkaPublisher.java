@@ -17,6 +17,11 @@ public class KafkaPublisher implements Publisher {
 
     @Override
     public boolean sendMessage(AbstractMessage message) {
+        if (!(message instanceof KafkaMessage)) {
+            return false;
+        }
+        KafkaMessage kafkaMessage = (KafkaMessage) message;
+        
         return false;
     }
 }

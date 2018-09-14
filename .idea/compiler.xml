@@ -10,7 +10,9 @@
         <module name="message" />
         <module name="mockito" />
         <module name="rxjava" />
+        <module name="spring-parent" />
         <module name="taskexecutor" />
+        <module name="util" />
       </profile>
     </annotationProcessing>
   </component>
