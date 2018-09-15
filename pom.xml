@@ -16,6 +16,7 @@
         <module>message</module>
         <module>util</module>
         <module>spring-parent</module>
+        <module>java-8</module>
     </modules>
     <packaging>pom</packaging>
 

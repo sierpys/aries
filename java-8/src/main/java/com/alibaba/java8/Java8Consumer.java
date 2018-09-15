@@ -30,10 +30,10 @@ public class Java8Consumer {
             System.out.println(x + 10);
         };
 
-        List<Integer> integerList = Arrays.asList(new Integer(1),
-                new Integer(10), new Integer(200),
-                new Integer(101), new Integer(-10),
-                new Integer(0));
+        List<Integer> integerList = Arrays.asList(1,
+                10, 200,
+                101, -10,
+                0);
 
         integerList.forEach(consumer);
 
