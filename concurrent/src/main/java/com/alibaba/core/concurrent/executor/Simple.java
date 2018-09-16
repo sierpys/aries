@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskDecorator;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolExecutorFactoryBean;
 
 import java.util.concurrent.ExecutorService;
@@ -17,8 +19,14 @@ import java.util.concurrent.ExecutorService;
  * @Copyright 2018 alibaba.com All Rights Reserved
  * @Vesion v1.0
  */
-//@Configuration
 public class Simple {
+
+
+    @Async
+    public void doSome() {
+        System.out.println("do some " + Thread.currentThread().getName());
+    }
+
 
 //
 //
@@ -34,7 +42,6 @@ public class Simple {
 //    public ExecutorService executorService() {
 //        return threadPoolExecutorFactoryBean().getObject();
 //    }
-
 
 
 //    public static void main(String[] args) {
