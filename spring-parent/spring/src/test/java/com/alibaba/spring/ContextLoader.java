@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.util.Assert;
 
 /**
@@ -42,6 +44,13 @@ public class ContextLoader {
 
         S2 s2 = ctx.getBean("s2", S2.class);
         System.out.println(s2.find());
+        ThreadPoolTaskExecutor taskExecutor = ctx.getBean("taskExecutor", ThreadPoolTaskExecutor.class);
+        for (int i = 0; i < 25; i++) {
+            taskExecutor.execute(() -> System.out.println("...." + Thread.currentThread().getName()));
+        }
+        taskExecutor.submit(() -> System.out.println(">>>>>>>" + Thread.currentThread().getName()));
+
+
 //        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Config.class);
 //        S2 s2 = applicationContext.getBean("s2", S2.class);
 //        System.out.println(s2.find());

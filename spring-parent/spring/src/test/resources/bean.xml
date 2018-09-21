@@ -8,4 +8,11 @@
     <bean id="s2" class="com.alibaba.spring.impl.S2Impl">
         <property name="service" ref="service"/>
     </bean>
+
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="10"/>
+        <property name="maxPoolSize" value="25"/>
+        <property name="queueCapacity" value="5"/>
+        <property name="threadNamePrefix" value="adfl"/>
+    </bean>
 </beans>

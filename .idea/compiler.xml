@@ -7,15 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="aquarius" />
+        <module name="concurrent" />
         <module name="java-8" />
         <module name="message" />
         <module name="mockito" />
         <module name="rxjava" />
         <module name="spring" />
-        <module name="springboot" />
-        <module name="taskexecutor" />
         <module name="util" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="taskexecutor" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
