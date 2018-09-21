@@ -1,9 +1,12 @@
 package com.alibaba.spring;
 
 import com.alibaba.spring.config.Config;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigUtils;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.util.Assert;
@@ -11,6 +14,7 @@ import org.springframework.util.Assert;
 /**
  * @author sier.pys 9/15/18
  */
+@Import(Config.class)
 public class ContextLoader {
     private static ApplicationContext context;
 

@@ -10,17 +10,17 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author sier.pys 9/15/18
  */
-@Configuration
+//@Configuration
 public class Config {
     @Bean
     public Service getService() {
         return new ServiceImpl();
     }
 
-    @Bean(name = "s2")
-    public S2 getS2(Service service) {
-        S2Impl s2 = new S2Impl();
-        s2.setService(service);
-        return s2;
-    }
+//    @Bean(name = "s2")
+//    public S2 getS2(Service service) {
+//        S2Impl s2 = new S2Impl();
+//        s2.setService(service);
+//        return s2;
+//    }
 }

@@ -1,5 +1,7 @@
 package com.alibaba.concurrent;
 
+import org.springframework.scheduling.annotation.Schedules;
+
 import java.util.concurrent.TimeUnit;
 
 /**
