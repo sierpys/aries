@@ -15,6 +15,7 @@
     <modules>
         <module>spring</module>
         <module>spring-boot</module>
+        <module>test</module>
     </modules>
     <dependencies>
         <dependency>
