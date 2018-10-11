@@ -8,10 +8,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.lang.Nullable;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 
 /**
  * @author sier.pys 9/25/18
@@ -67,8 +64,9 @@ public abstract class ExecutorConfigurationSupport extends CustomizableThreadFac
 
     @Override
     public void destroy() throws Exception {
-
+        shutdown();
     }
+
 
     public abstract ExecutorService initializeExecutor(ThreadFactory threadFactory, RejectedExecutionHandler rejectedExecutionHandler);
 
@@ -86,4 +84,46 @@ public abstract class ExecutorConfigurationSupport extends CustomizableThreadFac
         }
         this.executorService = initializeExecutor(threadFactory, rejectedExecutionHandler);
     }
+
+    private void shutdown() {
+        if (logger.isInfoEnabled()) {
+            logger.info("Shutting down ExecutorSerivce " + (this.beanName != null ? " '" + this.beanName + "'" : ""));
+        }
+        if (this.executorService != null) {
+            if (this.waitForTasksToCompleteOnShutdown) {
+                this.executorService.shutdown();
+            } else {
+                for (Runnable remainingTask : this.executorService.shutdownNow()) {
+                    cancelRemaingTask(remainingTask);
+                }
+            }
+            awaitTerminationIfNecessary(this.executorService);
+        }
+    }
+
+    protected void cancelRemaingTask(Runnable task) {
+        if (task instanceof Future) {
+            ((Future) task).cancel(true);
+        }
+    }
+
+    private void awaitTerminationIfNecessary(ExecutorService executorService) {
+        if (this.awaitTerminationSeconds > 0) {
+            try {
+                if (!executorService.awaitTermination(this.awaitTerminationSeconds, TimeUnit.SECONDS)) {
+                    if (logger.isWarnEnabled()) {
+                        logger.warn("Timed out while waiting for executor"
+                                + (this.beanName != null ? " '" + this.beanName + "'" : "") + " to terminate");
+                    }
+                }
+            } catch (InterruptedException e) {
+                if (logger.isWarnEnabled()) {
+                    logger.warn("Interrupted while waiting for executor"
+                            + (this.beanName != null ? " '" + this.beanName + "'" : "") + " to terminate");
+                }
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+
 }

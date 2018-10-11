@@ -5,7 +5,9 @@ import com.alibaba.core.concurrent.executor.Simple;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.BeanFactoryAnnotationUtils;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolExecutorFactoryBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -51,6 +53,9 @@ public class SpringBean {
 
     @Test
     public void testSimple() {
+        simple.doSome();
+        simple.doSome();
+        simple.doSome();
         simple.doSome();
         try {
             Thread.sleep(1000);

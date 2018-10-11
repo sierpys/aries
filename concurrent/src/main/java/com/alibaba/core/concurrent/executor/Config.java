@@ -1,13 +1,19 @@
 package com.alibaba.core.concurrent.executor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.util.ConcurrentReferenceHashMap;
 
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by sier.pys on 2018/9/16.
@@ -24,13 +30,15 @@ public class Config {
         return new Simple();
     }
 
-    @Bean(name = "taskExecutor")
-    public ExecutorService threadPoolExecutor() {
-        return Executors.newFixedThreadPool(3, new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                return new Thread(r, ".sa.f.asdfa");
-            }
-        });
+    //    @Bean(name = "taskExecutor")
+//    public ExecutorService threadPoolExecutor() {
+//        AtomicInteger atomicInteger = new AtomicInteger(0);
+//        return Executors.newFixedThreadPool(3, r -> new Thread(r, "customizable_thread_" + atomicInteger.getAndIncrement()));
+//    }
+    public static void main(String[] args) throws IOException {
+        ConcurrentReferenceHashMap<Object, Object> hashMap = new ConcurrentReferenceHashMap<>();
+        hashMap.getOrDefault("aaaa", "aaaa");
     }
+
+
 }

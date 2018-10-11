@@ -13,13 +13,10 @@
         <module name="mockito" />
         <module name="rxjava" />
         <module name="spring" />
-        <module name="springboot" />
+        <module name="spring-boot" />
         <module name="test" />
         <module name="util" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="taskexecutor" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
