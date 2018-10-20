@@ -1,15 +1,10 @@
 package com.alibaba.lifecycle;
 
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Scheduled;
-
-/**
- * @author sier.pys 8/17/18
- */
 @Configuration
 //@EnableScheduling
 //@EnableCaching
@@ -25,4 +20,17 @@ public class Config {
     public void doSom() {
         System.out.println(".....");
     }
+
+    @Bean
+    @Profile("windows")
+    public Service windows() {
+        return new TServiceImpl();
+    }
+
+    @Bean
+    @Profile("mac")
+    public Service mac() {
+        return new MACServiceImpl();
+    }
+
 }
