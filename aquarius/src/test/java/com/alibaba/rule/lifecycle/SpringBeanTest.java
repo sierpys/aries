@@ -20,7 +20,6 @@ public class SpringBeanTest {
 
     @Autowired
     SpringBean springBean;
-    @Autowired
 
     @Test
     public void springBean() {

@@ -1,17 +1,12 @@
-package com.alibaba.springboot;
+package com.alibaba.springboot.core;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * @author sier.pys 9/17/18
- */
 @SpringBootApplication
-public class Booter {
+public class SpringbootAllApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Booter.class, args);
+        SpringApplication.run(SpringbootAllApplication.class, args);
     }
-
-
 }

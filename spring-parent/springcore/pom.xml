@@ -6,13 +6,10 @@
         <artifactId>spring-parent</artifactId>
         <groupId>com.alibaba</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot</artifactId>
+    <artifactId>springcore</artifactId>
 
-    <dependencies>
-    </dependencies>
 
 </project>

@@ -4,15 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.SchedulingConfigurer;
+import org.springframework.scheduling.config.ScheduledTaskRegistrar;
+import org.springframework.scheduling.config.TriggerTask;
 import org.springframework.util.ConcurrentReferenceHashMap;
 
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.Properties;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -23,7 +24,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @Configuration
 @EnableAsync
-public class Config {
+@EnableScheduling
+public class Config implements SchedulingConfigurer {
+
 
     @Bean
     public Simple simple() {
@@ -40,5 +43,15 @@ public class Config {
         hashMap.getOrDefault("aaaa", "aaaa");
     }
 
+
+    @Override
+    public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
+        taskRegistrar.setScheduler(taskExecutor());
+    }
+
+    @Bean
+    public Executor taskExecutor() {
+        return Executors.newScheduledThreadPool(100);
+    }
 
 }

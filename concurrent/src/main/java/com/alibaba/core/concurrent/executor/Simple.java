@@ -16,6 +16,7 @@ import org.springframework.core.task.TaskDecorator;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.concurrent.ThreadPoolExecutorFactoryBean;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +36,11 @@ public class Simple implements ApplicationContextAware {
     @Async
     public void doSome() {
         System.out.println("do some " + Thread.currentThread().getName());
+    }
+
+    @Scheduled(fixedRate = 2)
+    public void doDo() {
+        System.out.println("......");
     }
 
     private ApplicationContext applicationContext;

@@ -13,6 +13,7 @@ import org.springframework.context.ResourceLoaderAware;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.annotation.PostConstruct;
 import javax.swing.*;
@@ -87,5 +88,10 @@ public class SpringBean implements BeanNameAware,BeanClassLoaderAware,BeanFactor
 
         System.out.println("====" + resourceLoader.getClass().getName());
 
+    }
+
+    @Scheduled(fixedRate = 2)
+    public void doSome() {
+        System.out.println(">>>>>>>>>");
     }
 }
