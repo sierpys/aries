@@ -3,6 +3,7 @@ package com.alibaba.aop.core;
 import org.aopalliance.aop.Advice;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.framework.ProxyFactoryBean;
 import org.springframework.util.ObjectUtils;
 
@@ -36,15 +37,22 @@ public class TicketServiceAroundAdvice implements MethodInterceptor {
         proxyFactoryBean.setInterfaces(TicketService.class);
         proxyFactoryBean.setTarget(railwayStation);
         proxyFactoryBean.setProxyTargetClass(true);
-        proxyFactoryBean.addAdvice(beforeAdvice);
+//        proxyFactoryBean.addAdvice(beforeAdvice);
         proxyFactoryBean.addAdvice(afterReturningAdvice);
         proxyFactoryBean.addAdvice(aroundAdvice);
         proxyFactoryBean.addAdvice(throwsAdvice);
+
+        AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
+        pointcut.setExpression("execution( * sellTicket(..))");
+        proxyFactoryBean.addAdvisor(new FilterAdvisor(pointcut, beforeAdvice));
+
+//        proxyFactoryBean.setOptimize(true);
         TicketService ticketService = (TicketService) proxyFactoryBean.getObject();
         if (ObjectUtils.isEmpty(ticketService)) {
             return;
         }
         ticketService.sellTicket();
+        ticketService.inquire();
 
     }
 }
