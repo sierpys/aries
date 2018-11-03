@@ -82,7 +82,12 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-tx</artifactId>
-                <version>${spring.version}</version>
+                <version>5.0.5.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>5.0.5.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
