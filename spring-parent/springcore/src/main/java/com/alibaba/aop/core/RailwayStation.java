@@ -1,5 +1,6 @@
 package com.alibaba.aop.core;
 
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -8,14 +9,12 @@ import org.springframework.stereotype.Component;
  * @author sier.pys 10/19/18
  */
 @Component
-public class RailwayStation implements TicketService {
-    public RailwayStation() {
-        System.out.println("初始化");
-    }
+public class RailwayStation implements TicketService, InitializingBean {
+    private String name;
 
     @Override
     public void sellTicket() {
-        System.out.println("售票............");
+        System.out.println("售票............给........" + name);
     }
 
     @Override
@@ -28,19 +27,16 @@ public class RailwayStation implements TicketService {
         System.out.println("退票.............");
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        if (applicationContext instanceof ConfigurableBeanFactory) {
-            ((ConfigurableBeanFactory) applicationContext).addBeanPostProcessor(new CustomizeBeanPostProcessor());
-        }
-        applicationContext.register(RailwayStation.class);
-        applicationContext.register(CustomizeBeanPostProcessor.class);
-        applicationContext.register(Bus.class);
-        applicationContext.refresh();
+    public void init() {
+        System.out.println(name + "..............name");
+    }
 
-
-//        TicketService bean = applicationContext.getBean(TicketService.class);
-//        bean.sellTicket();
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println(name + "...........properties");
     }
 }

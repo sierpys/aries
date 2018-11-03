@@ -15,6 +15,7 @@ import java.util.Set;
 public class AnnotationUtilsT {
     public static void main(String[] args) {
         try {
+
             Method method = TestParent.TestChildren.class.getMethod("test", HttpServletRequest.class);
             StaticTextAnnotation staticTextAnnot = AnnotationUtils.findAnnotation(method, StaticTextAnnotation.class);
 

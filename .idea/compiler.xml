@@ -11,9 +11,9 @@
         <module name="java-8" />
         <module name="message" />
         <module name="mockito" />
+        <module name="mybatis" />
         <module name="rxjava" />
         <module name="spring" />
-        <module name="spring-mybatis" />
         <module name="springcore" />
         <module name="test" />
         <module name="util" />
