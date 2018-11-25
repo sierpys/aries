@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="aquarius" />
         <module name="concurrent" />
+        <module name="dubbo" />
+        <module name="homework" />
         <module name="java-8" />
         <module name="message" />
         <module name="mockito" />

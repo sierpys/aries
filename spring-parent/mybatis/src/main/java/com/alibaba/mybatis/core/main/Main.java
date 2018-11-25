@@ -24,12 +24,12 @@ public class Main {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
 
-//            UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-//            User user = mapper.findById();
-//            System.out.println(user);
-
-            Object o = sqlSession.selectOne("com.alibaba.mybatis.core.dao.UserMapper.findById");
-            System.out.println(o);
+            UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+            User user = mapper.findById();
+            System.out.println(user);
+//
+//            Object o = sqlSession.selectOne("com.alibaba.mybatis.core.dao.UserMapper.findById");
+//            System.out.println(o);
         } finally {
             sqlSession.close();
         }

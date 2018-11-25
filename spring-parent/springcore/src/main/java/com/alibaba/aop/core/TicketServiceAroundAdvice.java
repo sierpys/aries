@@ -25,9 +25,9 @@ public class TicketServiceAroundAdvice implements MethodInterceptor {
 
     public static void main(String[] args) {
         Advice beforeAdvice = new TicketServiceBeforeAdvice();
-        Advice afterReturningAdvice = new TicketServiceAfterReturningAdvice();
-        Advice aroundAdvice = new TicketServiceAroundAdvice();
-        Advice throwsAdvice = new TicketServiceThrowsAdvice();
+//        Advice afterReturningAdvice = new TicketServiceAfterReturningAdvice();
+//        Advice aroundAdvice = new TicketServiceAroundAdvice();
+//        Advice throwsAdvice = new TicketServiceThrowsAdvice();
 
 
         RailwayStation railwayStation = new RailwayStation();
@@ -38,15 +38,17 @@ public class TicketServiceAroundAdvice implements MethodInterceptor {
         proxyFactoryBean.setTarget(railwayStation);
         proxyFactoryBean.setProxyTargetClass(true);
 //        proxyFactoryBean.addAdvice(beforeAdvice);
-        proxyFactoryBean.addAdvice(afterReturningAdvice);
-        proxyFactoryBean.addAdvice(aroundAdvice);
-        proxyFactoryBean.addAdvice(throwsAdvice);
+//        proxyFactoryBean.addAdvice(afterReturningAdvice);
+//        proxyFactoryBean.addAdvice(aroundAdvice);
+//        proxyFactoryBean.addAdvice(throwsAdvice);
 
-        AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
-        pointcut.setExpression("execution( * sellTicket(..))");
-        proxyFactoryBean.addAdvisor(new FilterAdvisor(pointcut, beforeAdvice));
+//        AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
+//        pointcut.setExpression("execution( * sellTicket(..))");
+//        proxyFactoryBean.addAdvisor(new FilterAdvisor(pointcut, beforeAdvice));
 
 //        proxyFactoryBean.setOptimize(true);
+
+        proxyFactoryBean.addAdvice(beforeAdvice);
         TicketService ticketService = (TicketService) proxyFactoryBean.getObject();
         if (ObjectUtils.isEmpty(ticketService)) {
             return;

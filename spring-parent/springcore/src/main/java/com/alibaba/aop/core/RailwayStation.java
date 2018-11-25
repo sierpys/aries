@@ -1,6 +1,7 @@
 package com.alibaba.aop.core;
 
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -8,8 +9,11 @@ import org.springframework.stereotype.Component;
 /**
  * @author sier.pys 10/19/18
  */
-@Component
+//@Component
 public class RailwayStation implements TicketService, InitializingBean {
+//    @Autowired
+//    private AutoWire autoWire;
+
     private String name;
 
     @Override
@@ -27,16 +31,12 @@ public class RailwayStation implements TicketService, InitializingBean {
         System.out.println("ÍËÆ±.............");
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void init() {
-        System.out.println(name + "..............name");
-    }
-
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println(name + "...........properties");
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
