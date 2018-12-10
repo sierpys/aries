@@ -1,5 +1,7 @@
 package com.alibaba.aop.core;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -7,9 +9,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class AutoWireImpl implements AutoWire {
+    Logger logger = LoggerFactory.getLogger("dummy");
 
     @Override
     public void print() {
-        System.out.println("autowire");
+        logger.debug("name {} nick {} chinese {}", "Eirc", "Àº∂˚", "≈À”¿ §");
     }
 }

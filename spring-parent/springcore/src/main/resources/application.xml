@@ -1,10 +1,7 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns="http://www.springframework.org/schema/beans"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                http://www.springframework.org/schema/beans/spring-beans.xsd
-                http://www.springframework.org/schema/tx
-                http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
     <bean id="propertyConfigurer"
@@ -17,38 +14,8 @@
         </property>
     </bean>
 
-    <bean id="tairManager" class="com.taobao.tair.impl.mc.MultiClusterTairManager" init-method="init">
-        <property name="userName" value="88e6c0d2667747c0"/>
-        <property name="dynamicConfig" value="false"/>
-        <property name="timeout" value="90000"/>
-    </bean>
-
-
     <bean id="railwayStation" class="com.alibaba.aop.core.RailwayStation">
         <property name="name" value="${AAAA}"/>
     </bean>
-
-    <!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"-->
-          <!--destroy-method="close">-->
-        <!--<property name="driverClass" value="${jdbc.driverClassName}"/>-->
-        <!--<property name="jdbcUrl" value="${jdbc.url}"/>-->
-        <!--<property name="user" value="${jdbc.username}"/>-->
-        <!--<property name="password" value="${jdbc.password}"/>-->
-        <!--<property name="minPoolSize" value="${jdbc.minPoolSize}"/>-->
-        <!--<property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>-->
-        <!--<property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>-->
-        <!--<property name="acquireIncrement" value="1"/>-->
-        <!--<property name="acquireRetryAttempts" value="5"/>-->
-        <!--<property name="acquireRetryDelay" value="1000"/>-->
-        <!--<property name="initialPoolSize" value="1"/>-->
-        <!--<property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}"/>-->
-        <!--<property name="preferredTestQuery" value="select 1 from dual"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
-        <!--<property name="dataSource" ref="dataSource"/>-->
-    <!--</bean>-->
-
-    <!--<tx:annotation-driven proxy-target-class="true" mode="aspectj"-->
-                          <!--transaction-manager="txManager" />-->
+    <bean id="autoWire" class="com.alibaba.aop.core.AutoWireImpl"/>
 </beans>

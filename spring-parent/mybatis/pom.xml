@@ -12,11 +12,6 @@
 
     <artifactId>mybatis</artifactId>
     <dependencies>
-        <dependency>
-            <groupId>com.taobao.tair</groupId>
-            <artifactId>tair-mc-client</artifactId>
-        </dependency>
-
     </dependencies>
 
 

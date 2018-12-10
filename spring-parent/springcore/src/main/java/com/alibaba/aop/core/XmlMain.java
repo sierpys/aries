@@ -1,14 +1,6 @@
 package com.alibaba.aop.core;
 
-import com.taobao.tair.DataEntry;
-import com.taobao.tair.Result;
-import com.taobao.tair.TairManager;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.TransactionCallback;
-import org.springframework.transaction.support.TransactionTemplate;
-import org.springframework.util.Assert;
 
 /**
  * @author sier.pys 10/27/18
@@ -16,13 +8,27 @@ import org.springframework.util.Assert;
 public class XmlMain {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
-        TairManager tairManager = context.getBean("tairManager", TairManager.class);
-        tairManager.put(223, "AAAA", "BBBB");
-        Result<DataEntry> aaaa = tairManager.get(223, "AAAA");
-        if (aaaa != null) {
-            System.out.println(aaaa.getValue());
-        }
-        assert tairManager != null;
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+//
+//        AutoWire autoWire = context.getBean("autoWire", AutoWire.class);
+//        autoWire.print();
+
+        AutoWire autoWire = new AutoWireImpl();
+        autoWire.print();
+//
+//        Logger logger = LoggerFactory.getLogger("chapters.introduction.HelloWorld2");
+//        logger.debug("Hello world.");
+//
+//        // print internal state
+//        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+//        StatusPrinter.print(lc);
+//        LoggerContext loggerContext = new LoggerContext();
+//        JoranConfigurator joranConfigurator = new JoranConfigurator();
+//        joranConfigurator.setContext(loggerContext);
+//        new ContextInitializer(loggerContext).autoConfig();
+//
+//        Logger logger = loggerContext.getLogger(XmlMain.class);
+//
+//        logger.error("=============");
     }
 }
