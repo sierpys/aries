@@ -10,6 +10,6 @@ import java.lang.reflect.Method;
 public class TicketServiceAfterReturningAdvice implements AfterReturningAdvice {
     @Override
     public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
-        System.out.println("AFTER_RETURNING：本次服务已结束....");
+        System.out.println("AFTER_RETURNING锛氭湰娆℃湇鍔″凡缁撴潫....");
     }
 }

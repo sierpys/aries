@@ -13,7 +13,7 @@
 //    @Override
 //    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 //        if (bean instanceof TicketService) {
-//            System.out.println("×Ô¼º¶¨ÒåµÄ after");
+//            System.out.println("è‡ªå·±å®šä¹‰çš„ after");
 //        }
 //        return bean;
 //    }
@@ -21,7 +21,7 @@
 //    @Override
 //    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 //        if (bean instanceof TicketService) {
-//            System.out.println("×Ô¼º¶¨ÒåµÄ before");
+//            System.out.println("è‡ªå·±å®šä¹‰çš„ before");
 //        }
 //        return bean;
 //    }

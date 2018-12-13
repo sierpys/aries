@@ -10,6 +10,6 @@ import java.lang.reflect.Method;
 public class TicketServiceBeforeAdvice implements MethodBeforeAdvice {
     @Override
     public void before(Method method, Object[] args, Object target) throws Throwable {
-        System.out.println("BEFORE_ADVICE: »¶Ó­¹âÁÙ´úÊÛµã....");
+        System.out.println("BEFORE_ADVICE: æ¬¢è¿Žå…‰ä¸´ä»£å”®ç‚¹....");
     }
 }

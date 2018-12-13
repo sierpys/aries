@@ -18,17 +18,17 @@ public class RailwayStation implements TicketService, InitializingBean {
 
     @Override
     public void sellTicket() {
-        System.out.println("ÊÛÆ±............¸ø........" + name);
+        System.out.println("å”®ç¥¨............ç»™........" + name);
     }
 
     @Override
     public void inquire() {
-        System.out.println("ÎÊÑ¯.............");
+        System.out.println("é—®è¯¢.............");
     }
 
     @Override
     public void withdraw() {
-        System.out.println("ÍËÆ±.............");
+        System.out.println("é€€ç¥¨.............");
     }
 
     @Override

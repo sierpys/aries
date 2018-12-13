@@ -13,6 +13,14 @@ public class AutoWireImpl implements AutoWire {
 
     @Override
     public void print() {
-        logger.debug("name {} nick {} chinese {}", "Eirc", "思尔", "潘永胜");
+        int i =0;
+        int[] entry = {1, 2};
+
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("Entry number: {} is {}", i, entry[i]);
+        }
+
+        logger.info("name {} nick {} chinese {}", "Alibaba", "闃块噷宸村反", "闃块噷宸村反闆嗗洟");
     }
 }

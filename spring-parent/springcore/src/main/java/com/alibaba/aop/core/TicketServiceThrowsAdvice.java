@@ -13,7 +13,7 @@ public class TicketServiceThrowsAdvice implements ThrowsAdvice {
     }
 
     public void afterThrowing(Method method, Object[] args, Object target, Exception ex) {
-        System.out.println("调用过程出错啦！！！！！");
+        System.out.println("璋冪敤杩囩▼鍑洪敊鍟︼紒锛侊紒锛侊紒");
     }
 
 }

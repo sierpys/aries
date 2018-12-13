@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="GB2312"?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
-<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
     <!-- 系统级别日志记录APPENDER -->
-    <appender name="PROJECT" class="org.apache.log4j.FileAppender">
-        <param name="file" value="dummy.log"/>
-        <param name="append" value="true"/>
+    <appender name="PROJECT" class="org.apache.log4j.ConsoleAppender">
+        <!--<param name="file" value="dummy.log"/>-->
+        <!--<param name="append" value="true"/>-->
         <param name="encoding" value="GBK"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d %m%n"/>

@@ -4,12 +4,12 @@ package com.alibaba.aop.core;
  * @author sier.pys 10/19/18
  */
 public interface TicketService {
-    //ÊÛÆ±
+    //å”®ç¥¨
     void sellTicket();
 
-    //ÎÊÑ¯
+    //é—®è¯¢
     void inquire();
 
-    //ÍËÆ±
+    //é€€ç¥¨
     void withdraw();
 }

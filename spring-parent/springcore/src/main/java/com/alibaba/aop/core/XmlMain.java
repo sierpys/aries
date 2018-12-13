@@ -1,5 +1,8 @@
 package com.alibaba.aop.core;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -7,28 +10,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class XmlMain {
 
-    public static void main(String[] args) {
-//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
-//
-//        AutoWire autoWire = context.getBean("autoWire", AutoWire.class);
-//        autoWire.print();
+    final static Logger logger = LoggerFactory.getLogger(XmlMain.class);
 
-        AutoWire autoWire = new AutoWireImpl();
+    public static void main(String[] args) {
+        logger.info("AAAAAA {}", "Alibaba");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:application.xml");
+        AutoWire autoWire = applicationContext.getBean("autoWire", AutoWire.class);
         autoWire.print();
-//
-//        Logger logger = LoggerFactory.getLogger("chapters.introduction.HelloWorld2");
-//        logger.debug("Hello world.");
-//
-//        // print internal state
-//        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-//        StatusPrinter.print(lc);
-//        LoggerContext loggerContext = new LoggerContext();
-//        JoranConfigurator joranConfigurator = new JoranConfigurator();
-//        joranConfigurator.setContext(loggerContext);
-//        new ContextInitializer(loggerContext).autoConfig();
-//
-//        Logger logger = loggerContext.getLogger(XmlMain.class);
-//
-//        logger.error("=============");
     }
 }
