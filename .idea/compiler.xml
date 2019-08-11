@@ -13,16 +13,16 @@
         <module name="springcore" />
         <module name="test" />
         <module name="aquarius" />
-        <module name="diamond" />
         <module name="mybatis" />
         <module name="spring" />
         <module name="message" />
         <module name="rxjava" />
-        <module name="dubbo" />
         <module name="mockito" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="diamond" target="1.8" />
+      <module name="dubbo" target="1.8" />
       <module name="javaagent" target="1.8" />
       <module name="lombok" target="1.8" />
     </bytecodeTargetLevel>
