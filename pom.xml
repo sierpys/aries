@@ -18,8 +18,8 @@
         <module>java-8</module>
         <module>concurrent</module>
         <module>dubbo</module>
-        <module>homework</module>
         <module>kafka</module>
+        <module>diamond</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -82,6 +82,17 @@
                 <artifactId>spring-jdbc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webflux</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.projectreactor.ipc</groupId>
+                <artifactId>reactor-netty</artifactId>
+                <version>0.7.15.RELEASE</version>
+            </dependency>
+
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -228,6 +239,24 @@
                 <artifactId>kafka-clients</artifactId>
                 <version>2.1.0</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.taobao.diamond</groupId>
+                <artifactId>diamond-client</artifactId>
+                <version>3.8.15</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>jakarta.commons.beanutils</artifactId>
+                <version>1.8.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.dynamic-sql</groupId>
+                <artifactId>mybatis-dynamic-sql</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
@@ -241,6 +270,31 @@
                     <target>1.8</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.7</version>
+                <configuration>
+                    <configurationFile>src/main/resources/mybatis-generator/generatorConfig.xml</configurationFile>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>Generate MyBatis Artifacts</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.mybatis.generator</groupId>
+                        <artifactId>mybatis-generator-core</artifactId>
+                        <version>1.3.7</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

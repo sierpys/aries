@@ -1,21 +1,29 @@
-<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                http://www.springframework.org/schema/beans/spring-beans.xsd">
+                http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
+    <!--<cache:annotation-driven/>-->
+<!--    <context:component-scan base-package="com.alibaba.aop.core"/>-->
 
-    <bean id="propertyConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-        <property name="locations">
-            <list>
-                <value>classpath*:application.properties</value>
-            </list>
-        </property>
-    </bean>
+    <context:component-scan base-package="com.alibaba.aop.core" >
+        <context:include-filter type="annotation" expression="com.alibaba.aop.core.Provider"/>
+    </context:component-scan>
+    <!--<bean class="org.springframework.cache.support.SimpleCacheManager">-->
+        <!--<property name="caches">-->
+            <!--<set>-->
+                <!--<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" >-->
+                    <!--<property name="name" value="task"/>-->
+                <!--</bean>-->
+            <!--</set>-->
+        <!--</property>-->
+    <!--</bean>-->
 
-    <bean id="railwayStation" class="com.alibaba.aop.core.RailwayStation">
-        <property name="name" value="${AAAA}"/>
-    </bean>
-    <bean id="autoWire" class="com.alibaba.aop.core.AutoWireImpl"/>
+    <!--<bean class="com.alibaba.aop.core.Worker" id="worker"/>-->
+
 </beans>

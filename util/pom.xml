@@ -22,5 +22,13 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.dynamic-sql</groupId>
+            <artifactId>mybatis-dynamic-sql</artifactId>
+        </dependency>
     </dependencies>
 </project>
