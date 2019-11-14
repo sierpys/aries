@@ -8,8 +8,22 @@
                 http://www.springframework.org/schema/context
                 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <context:component-scan base-package="com.alibaba.aop.core">
+    <!--<cache:annotation-driven/>-->
+<!--    <context:component-scan base-package="com.alibaba.aop.core"/>-->
+
+    <context:component-scan base-package="com.alibaba.aop.core" >
         <context:include-filter type="annotation" expression="com.alibaba.aop.core.Provider"/>
     </context:component-scan>
+    <!--<bean class="org.springframework.cache.support.SimpleCacheManager">-->
+        <!--<property name="caches">-->
+            <!--<set>-->
+                <!--<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" >-->
+                    <!--<property name="name" value="task"/>-->
+                <!--</bean>-->
+            <!--</set>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean class="com.alibaba.aop.core.Worker" id="worker"/>-->
 
 </beans>

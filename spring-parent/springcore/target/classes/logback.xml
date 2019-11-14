@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+    <conversionRule conversionWord="traceId"
+                    converterClass="com.alibaba.aop.core.TraceIdConverter" />
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d [%-5traceId] [%-5level] %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="trace">
+        <appender-ref ref="console"/>
+    </root>
+
+</configuration>

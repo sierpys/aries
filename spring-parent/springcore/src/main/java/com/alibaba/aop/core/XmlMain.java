@@ -1,12 +1,9 @@
 package com.alibaba.aop.core;
 
-import com.sun.org.apache.bcel.internal.generic.LADD;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
 
-import javax.swing.plaf.IconUIResource;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -28,8 +25,8 @@ public class XmlMain {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Mono.fromCallable(() -> getStringSync()).subscribeOn(Schedulers.elastic()).subscribe(System.out::println);
-        Thread.sleep(10000);
-
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application.xml");
+        SourceDataProvider provider = applicationContext.getBean(SourceDataProvider.class);
+        provider.printSource();
     }
 }

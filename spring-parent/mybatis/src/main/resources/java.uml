@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="10.0" y="240.0">org.springframework.beans.factory.config.PropertyPlaceholderConfigurer</node>
+    <node x="0.0" y="320.0">org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer</node>
+    <node x="270.0" y="240.0">org.springframework.context.support.PropertySourcesPlaceholderConfigurer</node>
+    <node x="164.0" y="0.0">org.springframework.beans.factory.config.BeanFactoryPostProcessor</node>
+    <node x="159.5" y="80.0">org.springframework.beans.factory.config.PropertyResourceConfigurer</node>
+    <node x="154.0" y="160.0">org.springframework.beans.factory.config.PlaceholderConfigurerSupport</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.beans.factory.config.PlaceholderConfigurerSupport" target="org.springframework.beans.factory.config.PropertyResourceConfigurer">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" target="org.springframework.beans.factory.config.PlaceholderConfigurerSupport">
+      <point x="0.0" y="-15.0" />
+      <point x="130.0" y="215.0" />
+      <point x="213.25" y="215.0" />
+      <point x="-59.25" y="15.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.PropertyResourceConfigurer" target="org.springframework.beans.factory.config.BeanFactoryPostProcessor">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="org.springframework.context.support.PropertySourcesPlaceholderConfigurer" target="org.springframework.beans.factory.config.PlaceholderConfigurerSupport">
+      <point x="0.0" y="-15.0" />
+      <point x="415.0" y="215.0" />
+      <point x="331.75" y="215.0" />
+      <point x="59.25" y="15.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer" target="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="280.0" y="569.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

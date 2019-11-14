@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alibaba.core.mapper.ZDZBPositionMapper">
+  <resultMap id="BaseResultMap" type="com.alibaba.core.model.ZDZBPosition">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="member_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="position_total" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="position_used" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="extension_01" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="extension_02" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="extension_03" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="version" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="is_valid" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="comment" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, member_id, position_total, position_used, extension_01, extension_02, extension_03, 
+    version, is_valid, gmt_create, gmt_modified, comment
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from zdzb_position
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from zdzb_position
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.alibaba.core.model.ZDZBPosition">
+    insert into zdzb_position (id, member_id, position_total, 
+      position_used, extension_01, extension_02, 
+      extension_03, version, is_valid, 
+      gmt_create, gmt_modified, comment
+      )
+    values (#{id,jdbcType=BIGINT}, #{memberId,jdbcType=VARCHAR}, #{positionTotal,jdbcType=INTEGER}, 
+      #{positionUsed,jdbcType=INTEGER}, #{extension01,jdbcType=VARCHAR}, #{extension02,jdbcType=VARCHAR}, 
+      #{extension03,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, #{isValid,jdbcType=BIT}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{comment,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.alibaba.core.model.ZDZBPosition">
+    insert into zdzb_position
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="positionTotal != null">
+        position_total,
+      </if>
+      <if test="positionUsed != null">
+        position_used,
+      </if>
+      <if test="extension01 != null">
+        extension_01,
+      </if>
+      <if test="extension02 != null">
+        extension_02,
+      </if>
+      <if test="extension03 != null">
+        extension_03,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="isValid != null">
+        is_valid,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null">
+        #{memberId,jdbcType=VARCHAR},
+      </if>
+      <if test="positionTotal != null">
+        #{positionTotal,jdbcType=INTEGER},
+      </if>
+      <if test="positionUsed != null">
+        #{positionUsed,jdbcType=INTEGER},
+      </if>
+      <if test="extension01 != null">
+        #{extension01,jdbcType=VARCHAR},
+      </if>
+      <if test="extension02 != null">
+        #{extension02,jdbcType=VARCHAR},
+      </if>
+      <if test="extension03 != null">
+        #{extension03,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="isValid != null">
+        #{isValid,jdbcType=BIT},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.alibaba.core.model.ZDZBPosition">
+    update zdzb_position
+    <set>
+      <if test="memberId != null">
+        member_id = #{memberId,jdbcType=VARCHAR},
+      </if>
+      <if test="positionTotal != null">
+        position_total = #{positionTotal,jdbcType=INTEGER},
+      </if>
+      <if test="positionUsed != null">
+        position_used = #{positionUsed,jdbcType=INTEGER},
+      </if>
+      <if test="extension01 != null">
+        extension_01 = #{extension01,jdbcType=VARCHAR},
+      </if>
+      <if test="extension02 != null">
+        extension_02 = #{extension02,jdbcType=VARCHAR},
+      </if>
+      <if test="extension03 != null">
+        extension_03 = #{extension03,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="isValid != null">
+        is_valid = #{isValid,jdbcType=BIT},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.alibaba.core.model.ZDZBPosition">
+    update zdzb_position
+    set member_id = #{memberId,jdbcType=VARCHAR},
+      position_total = #{positionTotal,jdbcType=INTEGER},
+      position_used = #{positionUsed,jdbcType=INTEGER},
+      extension_01 = #{extension01,jdbcType=VARCHAR},
+      extension_02 = #{extension02,jdbcType=VARCHAR},
+      extension_03 = #{extension03,jdbcType=VARCHAR},
+      version = #{version,jdbcType=INTEGER},
+      is_valid = #{isValid,jdbcType=BIT},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      comment = #{comment,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
