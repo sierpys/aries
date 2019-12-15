@@ -23,6 +23,7 @@
     <bytecodeTargetLevel>
       <module name="diamond" target="1.8" />
       <module name="dubbo" target="1.8" />
+      <module name="dynamin-cengine" target="1.8" />
       <module name="javaagent" target="1.8" />
       <module name="lombok" target="1.8" />
     </bytecodeTargetLevel>

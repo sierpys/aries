@@ -18,6 +18,7 @@
         <module>java-8</module>
         <module>concurrent</module>
         <module>kafka</module>
+        <module>dynamic-engine</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -1,7 +1,8 @@
 package com.alibaba.aop.core;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.alibaba.aop.core.event.MyEvent;
+import com.alibaba.aop.core.event.TypeEvent;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import reactor.core.publisher.Flux;
 
 import java.util.concurrent.TimeUnit;
@@ -25,8 +26,10 @@ public class XmlMain {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application.xml");
-        SourceDataProvider provider = applicationContext.getBean(SourceDataProvider.class);
-        provider.printSource();
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(DataProvider.class);
+        AutoWire autoWire = applicationContext.getBean(AutoWire.class);
+        applicationContext.publishEvent(new MyEvent(new Object(), "alibaba"));
+        applicationContext.publishEvent(new MyEvent(new TypeEvent(), "alibaba_____888888"));
+        autoWire.print();
     }
 }
